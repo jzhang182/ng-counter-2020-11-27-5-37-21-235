@@ -7,15 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
   count = 0;
+  numberColor = 'white';
   constructor() { }
 
   ngOnInit(): void {
   }
-  increaseCount(): void{
+  increaseCount(): void {
     this.count++;
+    if (this.count > 10) {
+      this.numberColor = 'red';
+    }
+    if (this.count === 0) {
+      this.numberColor = 'white';
+    }
   }
-  decreaseCount(): void{
+  decreaseCount(): void {
     this.count--;
+    if (this.count < 0) {
+      this.numberColor = 'green';
+    }
+    if (this.count === 10) {
+      this.numberColor = 'white';
+    }
   }
-
+  resetCount(): void{
+    this.count = 0;
+    this.numberColor = 'white';
+  }
 }
